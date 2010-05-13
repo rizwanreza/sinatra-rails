@@ -1,0 +1,30 @@
+<pre>git clone git@github.com:rizwanreza/sinatra-rails.git
+
+bundle install
+
+rails server
+</pre>
+Go to: @http://localhost:3000/sinatra@ or @http://localhost:3000/sinatra/world@ etc.
+
+h3. Routes
+
+<pre>
+  class SinatraApp < Sinatra::Base
+
+    get '/sinatra' do
+      "Hello from SinatraApp"
+    end
+
+    get '/sinatra/world' do
+      "Hello World"
+    end
+
+    get '/sinatra/hello' do
+      "Once again, Hello World!"
+    end
+  end
+
+  SinatraRails::Application.routes.draw do |map|
+    match '/sinatra(/:string)' => SinatraApp
+  end
+</pre>
